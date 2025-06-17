@@ -16,9 +16,6 @@ main().catch((err) => {
 });
 
 // TODO: - Index sample data
-// TODO: - hard code system prompt into model (portal)
 // TODO: - allow users to change previous messages
-// TODO: - ensure that users cannot change the system prompt
-//         - maybe use a separate system prompt for the CLI?
 // TODO: - input santization & other security measures
 

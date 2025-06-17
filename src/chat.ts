@@ -1,16 +1,18 @@
+import { systemPrompt } from "./types/config.js";
+
 export type Message = {
     role: 'system' | 'user' | 'assistant';
     content: string;
 };
 
 // Initial system prompt
-const systemPrompt = { role: "system", content: "You are a helpful assistant that speaks in old English." };
+const initializerPrompt = { role: "system", content: systemPrompt };
 
 export async function showResponseStream(client: Promise<any>, messages: Message[], modelName: string) {
     try {
         // Send the input to the Azure OpenAI client
         const stream = await (await client).chat.completions.create({
-            messages: [systemPrompt, ...messages],
+            messages: [initializerPrompt, ...messages],
             max_tokens: 4096,
             temperature: 1,
             model: modelName,

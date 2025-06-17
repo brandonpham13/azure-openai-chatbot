@@ -1,4 +1,6 @@
-export const featureCheckMock: LicenseReportCompleteObject =
+// MOCK DATA FOR TESTING PURPOSES
+
+export const featureCheckMock =
 {
     'availableLicense': {
         // Microsoft Defender for Endpoint Plan 1
