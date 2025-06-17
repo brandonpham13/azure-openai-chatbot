@@ -1,26 +1,34 @@
 import { featureCheckMock } from "../../sample_data/sample_data.js";
 
-const mockData = {
-    availableLicense: {
-        '292cc034-7b7c-4950-aaf5-943befd3f1d4': 8,
-        '5f3b1ded-75c0-4b31-8e6e-9b077eaadfd5': 4,
-        '67bf4812-f90b-4db9-97e7-c0bbbf7b2d09': 1,
-        '871d91ec-ec1a-452b-a83f-bd76c7d770ef': 13,
-        'a1ace008-72f3-4ea0-8dac-33b3a23a2472': 0,
-        'a7c70a41-5e02-4271-93e6-d9b4184d83f5': 50,
-        'bfc1bbd9-981b-4f71-9b82-17c35fd0e2a4': 21,
-        '41781fb2-bc02-4b7c-bd55-b576c07bb09d': 1
-    }                              // featureCheckMock.availableLicense,
-    // correlation:                // featureCheckMock.correlation,
-    // licenseData:                // featureCheckMock.licenseData
+ /*
+ featureCheckMock = {
+    availableLicense:           featureCheckMock.availableLicense,
+    correlation:                featureCheckMock.correlation,
+    licenseData:                featureCheckMock.licenseData
 }
+*/
 
-// interface Feature {
-//     value?: number;
-//     [key: string]: unknown;
-// }
+interface DataGateway {
+  availableLicense: Record<string, number>;
+  correlation: {
+    auditTenantAccount: string;
+    correlationId: string;
+    reportTenantAccount: string;
+    tenantId: string;
+    createdAt: string;
+    updatedAt: string;
+  };
+  licenseData: Record<
+    string,
+    {
+      assignedLicense: Record<string, unknown>;
+      assignedService: Record<string, number | Record<string, boolean> | null>;
+      consumedService: Record<string, null | Record<string, boolean>>;
+    }
+  >;
+};
 
-function sumData(testData): number {
+function sumData(testData: DataGateway): number {
     // Initialize the sum variable
     let sum = 0;
 
@@ -35,4 +43,4 @@ function sumData(testData): number {
     return sum; // Return the total sum
 }
 
-console.log("Total sum of available licenses:", sumData(mockData));
+console.log("Total sum of available licenses:", sumData(featureCheckMock));

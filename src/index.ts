@@ -5,7 +5,7 @@ import * as config from "./types/config.js";
 async function main() {
 
   // Connect to the Azure OpenAI client
-  const client = connectAzureOpenAIClient(config.endpoint, config.modelName, config.apiVersion);
+  const client = connectAzureOpenAIClient(config.ENDPOINT, config.MODEL_NAME, config.API_VERSION);
 
   console.log("Chatbot ready. Ask me anything: ");
   startCLI(client);

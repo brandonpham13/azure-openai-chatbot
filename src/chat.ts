@@ -1,4 +1,4 @@
-import { systemPrompt } from "./types/config.js";
+import { SYSTEM_PROMPT } from "./types/config.js";
 
 export type Message = {
     role: 'system' | 'user' | 'assistant';
@@ -6,7 +6,7 @@ export type Message = {
 };
 
 // Initial system prompt
-const initializerPrompt = { role: "system", content: systemPrompt };
+const initializerPrompt = { role: "system", content: SYSTEM_PROMPT };
 
 export async function showResponseStream(client: Promise<any>, messages: Message[], modelName: string) {
     try {
