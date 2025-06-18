@@ -11,7 +11,7 @@ export const featureCheckMock =
         '67bf4812-f90b-4db9-97e7-c0bbbf7b2d09': 1,
         // Microsoft Defender For Endpoint
         '871d91ec-ec1a-452b-a83f-bd76c7d770ef': 13,
-        // Microsoft Clipchamp  F
+        // Microsoft Clipchamp
         'a1ace008-72f3-4ea0-8dac-33b3a23a2472': 0,
         // AI Builder capacity add-on
         'a7c70a41-5e02-4271-93e6-d9b4184d83f5': 50,
