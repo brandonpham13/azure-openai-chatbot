@@ -17,13 +17,23 @@ const initializerPrompt = { role: "system", content: SYSTEM_PROMPT };
 // Function to process tool calls
 function processToolCall(toolCall: any) {
 	const args = JSON.parse(toolCall.function.arguments);
+	
 	// Add new functions to this conditional
+
+	// FUNCTION 1
 	if (toolCall.function.name === "sumData") {
-		return sumData(args);
+		if (Object.keys(args).length === 0) {
+			// If no arguments are provided, use the default mock data
+			return sumData();
+		} else {
+			return sumData(args);
+		}
 	}
+	// FUNCTION 2
 	else if (toolCall.function.name === "getLastName") {
 		return getLastName(args.firstName);
 	}
+
 	console.log("Unknown tool call: ", toolCall.function.name);
 	process.exit(1);
 }
