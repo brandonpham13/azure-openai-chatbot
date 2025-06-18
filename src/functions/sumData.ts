@@ -1,7 +1,7 @@
 import { featureCheckMock } from "../../sample_data/sample_data.js";
 
- /*
- featureCheckMock = {
+/*
+featureCheckMock = {
     availableLicense:           featureCheckMock.availableLicense,
     correlation:                featureCheckMock.correlation,
     licenseData:                featureCheckMock.licenseData
@@ -28,12 +28,12 @@ interface DataGateway {
   >;
 };
 
-function sumData(testData: DataGateway): number {
+function sumData(dataSource: DataGateway): number {
     // Initialize the sum variable
     let sum = 0;
 
     // Iterate through each feature in the mock data
-    for (const value of Object.values(testData.availableLicense)) {
+    for (const value of Object.values(dataSource.availableLicense)) {
         // Check if the value is a number
         if (typeof value === 'number') {
             sum += value; // Add the value to the sum
@@ -43,4 +43,4 @@ function sumData(testData: DataGateway): number {
     return sum; // Return the total sum
 }
 
-console.log("Total sum of available licenses:", sumData(featureCheckMock));
+// console.log("Total sum of available licenses:", sumData(featureCheckMock));
