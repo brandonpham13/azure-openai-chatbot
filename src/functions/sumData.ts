@@ -28,7 +28,7 @@ interface DataGateway {
   >;
 };
 
-function sumData(dataSource: DataGateway): number {
+export function sumData(dataSource: DataGateway = featureCheckMock): number {
     // Initialize the sum variable
     let sum = 0;
 
@@ -43,4 +43,11 @@ function sumData(dataSource: DataGateway): number {
     return sum; // Return the total sum
 }
 
-// console.log("Total sum of available licenses:", sumData(featureCheckMock));
+export function getLastName(firstName: string): string {
+    if (firstName == 'Brandon') {
+        return "pham";
+    }
+    else return "unknown";
+}
+
+// console.log("Total sum of available licenses:", sumData());

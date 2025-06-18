@@ -1,5 +1,5 @@
 import readline from "readline";
-import { showResponseStream } from "./chat.js";
+import { sendReceiveMessage } from "./chat.js";
 import type { Message } from "./chat.js";
 
 export function startCLI(client: Promise<any>) {
@@ -38,7 +38,7 @@ export function startCLI(client: Promise<any>) {
                 messages.push({ role: "user", content: userInput });
                 
                 // Show the response stream from the Azure OpenAI client
-                const reply = await showResponseStream(await client, messages);
+                const reply = await sendReceiveMessage(await client, messages);
                 
                 // Add the assistant's reply to messages
                 if (reply) {
